@@ -1,68 +1,49 @@
-=
- WebP Converter
-JPG/PNG -> WebP
-=
+# WebP Converter
 
-Conversor de imagenes que usa Sharp para transformar JPG/PNG a WebP con
-alta compresion, manteniendo metadatos (GPS, fecha, orientacion).
+Convierte JPG/PNG a WebP usando Sharp, manteniendo metadatos (GPS, fecha, orientacion).
 
-----------------------------------------------------------------------
-USO
-----------------------------------------------------------------------
+## Uso
 
-  1. Arrastra una carpeta con fotos sobre convertir.bat
+Arrastra una carpeta con fotos sobre `convertir.bat`:
 
-  2. El script busca todos los JPG/PNG en esa carpeta y los convierte
-     a WebP con calidad 80%
+```
+Carpeta origen/
+    IMG_001.jpg
+    IMG_002.png
+    ...
 
-  3. Las imagenes convertidas se guardan en:
+Resultado:
 
-        {carpeta}\convertidas\
+Carpeta origen/convertidas/
+    IMG_001.webp
+    IMG_002.webp
+    ...
+```
 
-  4. Si alguna falla, se genera errores.txt dentro de esa misma carpeta
+Si alguna conversion falla, se genera `errores.txt` dentro de la carpeta de salida.
 
-----------------------------------------------------------------------
-EJEMPLO
-----------------------------------------------------------------------
+## Instalacion
 
-  F:\celular\fotos\            (arrastras esta carpeta al .bat)
-      -> IMG_001.jpg
-      -> IMG_002.png
-      -> ...
+```bash
+npm install
+```
 
-  Resultado:
+Requiere Node.js 14+ y npm.
 
-  F:\celular\fotos\convertidas\
-      -> IMG_001.webp
-      -> IMG_002.webp
-      -> ...
+## Dependencias
 
-----------------------------------------------------------------------
-INSTALACION
-----------------------------------------------------------------------
+- [sharp](https://sharp.pixelplumbing.com/) - conversion a WebP con metadatos
 
-  npm install
+## Estructura
 
-  Requiere Node.js 14+ y npm instalados en el sistema.
+```
+convertir.bat        Script de entrada (doble clic o arrastrar carpeta)
+convertir.js         Logica de conversion
+package.json         Dependencias
+```
 
-----------------------------------------------------------------------
-DEPENDENCIAS
-----------------------------------------------------------------------
+## Notas
 
-  - sharp (conversion a WebP con metadatos)
-
-----------------------------------------------------------------------
-ESTRUCTURA DEL PROYECTO
-----------------------------------------------------------------------
-
-  convertir.bat        - Script de entrada (doble clic o arrastrar carpeta)
-  convertir.js         - Logica de conversion
-  package.json         - Dependencias del proyecto
-
-----------------------------------------------------------------------
-NOTAS
-----------------------------------------------------------------------
-
-  - Las imagenes originales NO se modifican ni eliminan
-  - Los metadatos (GPS, fecha, etc.) se conservan en el WebP
-  - Compatible con JPEG y PNG
+- Las imagenes originales no se modifican ni eliminan
+- Los metadatos (GPS, fecha, etc.) se conservan en el WebP
+- Compatible con JPEG y PNG
